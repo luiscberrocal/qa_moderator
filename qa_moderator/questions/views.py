@@ -10,6 +10,7 @@ class CreateQuestionView(CreateView):
     model = Question
     template_name = 'questions/question.html'
     success_url = '/'
+    fields = ('id', 'question')
 
 
 create_question_view = CreateQuestionView.as_view()
