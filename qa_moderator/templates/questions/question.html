@@ -1,6 +1,43 @@
-{% load crispy_forms_tags %}
+{% extends "_base.html" %}
+{% load static i18n %}
 
-<form method="post" class="uniForm">
-    {{ form|crispy }}
+{% block content %}
 
-</form>
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center text-white mb-4">REUNIÓN DE COMUNICACIÓN</h2>
+            <h2 class="text-center text-white mb-4">DE IST</h2>
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+
+                    <!-- form card login -->
+                    <div class="card rounded-0">
+                        <div class="card-header">
+                            <h3 class="mb-0">Q&A</h3>
+                        </div>
+                        <div class="card-body">
+                            {% load crispy_forms_tags %}
+                            <form class="form" role="form" autocomplete="off" id="formLogin" novalidate=""
+                                  method="POST">
+                                {{ form|crispy }}
+                                <button type="submit" class="btn btn-success btn-lg float-right" id="btnLogin">Submit
+                                </button>
+                            </form>
+                        </div>
+                        <!--/card-block-->
+                    </div>
+                    <!-- /form card login -->
+
+                </div>
+
+
+            </div>
+            <!--/row-->
+
+        </div>
+        <!--/col-->
+    </div>
+    <!--/row-->
+
+
+{% endblock content %}
