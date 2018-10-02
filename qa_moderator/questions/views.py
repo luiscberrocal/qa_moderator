@@ -8,3 +8,8 @@ from qa_moderator.questions.models import Question
 
 class CreateQuestionView(CreateView):
     model = Question
+    template_name = 'questions/question.html'
+    success_url = '/'
+
+
+create_question_view = CreateQuestionView.as_view()
