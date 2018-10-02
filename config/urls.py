@@ -20,6 +20,7 @@ urlpatterns = [
         include("qa_moderator.users.urls", namespace="users"),
     ),
     path("accounts/", include("allauth.urls")),
+    path("questions/", include("qa_moderator.questions.urls", namespace='questions')),
     # Your stuff: custom urls includes go here
 ] + static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
