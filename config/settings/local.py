@@ -65,3 +65,13 @@ INSTALLED_APPS += ['django_extensions']  # noqa F405
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "qa_moderator",
+        "USER": "mOfSdWdhLkJutUEVGWlaRMRVxLZkeIul",
+        "PASSWORD": "nGW4xSvxmumD0QOgZS2co9KslETYptrchHEVZw7OHSAgiwh3vpgGhGqDlOJpSfip",
+        "HOST": "postgres",
+        "PORT": "5432",
+    },
+}
