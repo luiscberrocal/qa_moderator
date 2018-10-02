@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>HOla</title>
-</head>
-<body>
-Hola
+{% load crispy_forms_tags %}
 
-</body>
-</html>
+<form method="post" class="uniForm">
+    {{ form|crispy }}
+  
+</form>
