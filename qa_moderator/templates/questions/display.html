@@ -3,6 +3,7 @@
 
   {% block extra_css %}
     <link href="{% static 'css/display.css' %}" rel="stylesheet">
+
   {% endblock extra_css %}
 
 {% block content %}
@@ -41,7 +42,7 @@
                     currentSlide = 0;
 
                 // Append slider nav
-                $slider.append('<button class="slider-nav slider-prev">prev</button><button class="slider-nav slider-next">next</button>');
+                $slider.append('<button class="slider-nav slider-prev"><<</button><button class="slider-nav slider-next">>></button>');
                 var $sliderNav = $slider.find('.slider-nav');
 
                 // Add active class to first slide
