@@ -22,8 +22,8 @@
 
     <script type="text/javascript" text="javascript">
         $.getJSON("../api/", function (data) {
-            var myJson = data;
-            var lastItem = myJson.length;
+            var myJson = data.results;
+            var lastItem = data.count;
             for (var i = 0; i < lastItem; i++) {
                 $('.innerCarousel').css('width', (lastItem * 500) + 'px');
                 $('.slider-list').append('<li><div class="chepe"><div class="chepe2">' + myJson[i].question + '</div></div></li>');
