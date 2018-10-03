@@ -1,19 +1,92 @@
 {% extends "_base.html" %}
 {% load static i18n %}
 
+  {% block extra_css %}
+    <link href="{% static 'css/display.css' %}" rel="stylesheet">
+  {% endblock extra_css %}
+
 {% block content %}
-
-     <div class="row">
+    <div class="row">
         <div class="col-md-12">
-            <h2 class="text-center text-white mb-4">Thank you</h2>
-            <div class="col-md-8 mx-auto">
-
-                <button type="submit" class="btn btn-success btn-lg float-right" id="btnLogin">New question</button>
-
+            <h1 class="text-center text-white mb-4">Q&A</h1>
+             </div>
+            <div class="col-md-12 mx-auto">
+                <div class="slider">
+                    <ul class="slider-list">
+                    </ul>
+                </div>
             </div>
         </div>
-        <!--/col-->
     </div>
-    <!--/row-->
 
+
+    <script type="text/javascript" text="javascript">
+        $.getJSON("../api/", function (data) {
+            var myJson = data;
+            var lastItem = myJson.length;
+            for (var i = 0; i < lastItem; i++) {
+                $('.innerCarousel').css('width', (lastItem * 500) + 'px');
+                $('.slider-list').append('<li><div class="chepe"><div class="chepe2">' + myJson[i].question + '</div></div></li>');
+            }
+
+
+            // Allow for muclitple sliders by running the code on each of them
+            $('.slider').each(function () {
+                // Set up vars
+                var $slider = $(this),
+                    $sliderList = $slider.find('.slider-list'),
+                    slides = $sliderList.children().length,
+                    currentSlide = 0;
+
+                // Append slider nav
+                $slider.append('<button class="slider-nav slider-prev">prev</button><button class="slider-nav slider-next">next</button>');
+                var $sliderNav = $slider.find('.slider-nav');
+
+                // Add active class to first slide
+                $sliderList.children().first().addClass('active-slide');
+                var slideHeight = $sliderList.find('.active-slide').outerHeight();
+
+                $slider.css('height', slideHeight);
+
+                $sliderNav.on('click', function () {
+                    $(this).closest('.slider').find('.active-slide').removeClass('active-slide');
+
+                    if ($(this).is('.slider-next')) {
+                        _nextSlide();
+                    }
+
+                    if ($(this).is('.slider-prev')) {
+                        _prevSlide();
+                    }
+
+                    $(this).closest('.slider').find('li:eq(' + currentSlide + ')').addClass('active-slide');
+                    slideHeight = $sliderList.find('.active-slide').outerHeight();
+                    $slider.animate({
+                        'height': slideHeight
+                    }, 150);
+                });
+
+                function _nextSlide() {
+                    currentSlide++;
+                    if (currentSlide == slides) {
+                        currentSlide = 0;
+                    }
+                    var slideLength = 100 * currentSlide;
+                    $sliderList.css('transform', 'translateX(-' + slideLength + '%)');
+                }
+
+                function _prevSlide() {
+                    currentSlide--;
+                    if (currentSlide < 0) {
+                        currentSlide = slides - 1;
+                    }
+                    var slideLength = 100 * currentSlide;
+                    $sliderList.css('transform', 'translateX(-' + slideLength + '%)');
+                }
+            });
+
+
+        });
+
+    </script>
 {% endblock content %}
