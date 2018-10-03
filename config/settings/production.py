@@ -1,3 +1,5 @@
+import logging
+
 from .base import *  # noqa
 from .base import env
 
@@ -79,7 +81,7 @@ AWS_S3_OBJECT_PARAMETERS = {
 
 # STATIC
 # ------------------------
-
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 #STATICFILES_STORAGE = 'config.settings.production.StaticRootS3Boto3Storage'
 #STATIC_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/'
 
@@ -154,7 +156,10 @@ INSTALLED_APPS += ['gunicorn']  # noqa F405
 # # https://github.com/antonagestam/collectfast#installation
 # INSTALLED_APPS = ['collectfast'] + INSTALLED_APPS  # noqa F405
 # AWS_PRELOAD_METADATA = True
-
+# WhiteNoise
+# ------------------------------------------------------------------------------
+# http://whitenoise.evans.io/en/latest/django.html#enable-whitenoise
+MIDDLEWARE = ['whitenoise.middleware.WhiteNoiseMiddleware'] + MIDDLEWARE  # noqa F405
 
 # LOGGING
 # ------------------------------------------------------------------------------
