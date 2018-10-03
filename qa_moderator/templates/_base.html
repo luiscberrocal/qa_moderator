@@ -26,6 +26,14 @@
     <!-- This file stores project-specific CSS -->
 
     <link href="{% static 'css/project.css' %}" rel="stylesheet">
+  {% block extra_css %}
+
+
+  {% endblock extra_css %}
+ <!--
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+-->
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 </head>
 
 <body>
@@ -79,7 +87,6 @@
 <!-- place project specific Javascript in this file -->
 
 <script src="{% static 'js/project.js' %}"></script>
-
 
 </body>
 </html>
