@@ -1,39 +1,39 @@
 {% load static i18n %}<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{% block title %}QA Moderator{% endblock title %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>{% block title %}QA Moderator{% endblock title %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <![endif]-->
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <![endif]-->
 
-    <link rel="icon" href="{% static 'images/favicons/favicon.ico' %}">
+  <link rel="icon" href="{% static 'images/favicons/favicon.ico' %}">
 
 
-    <!-- Latest compiled and minified Bootstrap 4.1.1 CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <!-- Latest compiled and minified Bootstrap 4.1.1 CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+        integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
-©
-    <!-- Your stuff: Third-party CSS libraries go here -->
+  ©
+  <!-- Your stuff: Third-party CSS libraries go here -->
 
-    <!-- This file stores project-specific CSS -->
+  <!-- This file stores project-specific CSS -->
 
-    <link href="{% static 'css/project.css' %}" rel="stylesheet">
+  <link href="{% static 'css/project.css' %}" rel="stylesheet">
   {% block extra_css %}
 
 
   {% endblock extra_css %}
- <!--
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
--->
-<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  <!--
+ <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+ -->
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 </head>
 
 <body>
@@ -41,31 +41,34 @@
 
 <div class="wrapper">
 
-    <div class="container py-5">
-        {% block content %}
+  <div class="container py-5">
+    {% block content %}
 
 
-
-        {% endblock content %}
-<div class="version">Version: 0.2.8</div>
-        <!--/col-->
+    {% endblock content %}
+    <div class="row">
+      <div class="col-md-12">
+        <div class="version">Version: 0.2.1</div>
+      </div>
     </div>
-    <!--/row-->
+    <!--/col-->
+  </div>
+  <!--/row-->
 </div>
 <!--/container-->
 
 
 <ul class="bg-bubbles">
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
 </ul>
 </div>
 

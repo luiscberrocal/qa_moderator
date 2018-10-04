@@ -8,7 +8,7 @@
 */
 .version {
   z-index: 3;
-  background-color: red;
+  background-color: #1a9cff;
 }
 .alert-debug {
   color: black;
@@ -273,4 +273,17 @@ form button:hover {
 .thanx-btn{
   position: relative;
   z-index: 2;
+}
+
+canvas {
+  position: absolute;
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
 }
