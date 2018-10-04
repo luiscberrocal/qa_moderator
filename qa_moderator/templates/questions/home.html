@@ -1,0 +1,82 @@
+{% extends "_base.html" %}
+{% load static i18n %}
+
+{% block content %}
+
+  <div class="row">
+    <div class="col-md-12">
+<canvas id="news-glitch"></canvas>
+    </div>
+    <!--/col-->
+  </div>
+  <!--/row-->
+
+
+
+<script>
+
+  $(function(){
+    var canvas = document.getElementById('news-glitch'),
+        context = canvas.getContext('2d'),
+        img = new Image(),
+        w,
+        h,
+        offset,
+        glitchInterval;
+
+    //canvas.width = $(window).width();
+    //canvas.height = $(window).height();
+
+    canvas.width = 640;
+    canvas.height = 360;
+
+    h = canvas.height;
+    w = canvas.width;
+
+    img.src = 'https://www.turimexico.com/wp-content/uploads/2015/10/el-chepe.jpg';
+    img.onload = function() {
+        init();
+        window.onresize = init;
+    };
+
+    var init = function() {
+        clearInterval(glitchInterval);
+        canvas.width = w = window.innerWidth;
+        offset = w * 0.1;
+        canvas.height = h = ~~(img.height * ((w - offset) / img.width));
+        glitchInterval = setInterval(function() {
+            clear();
+            context.drawImage(img, 0, 0, img.width, img.height, offset, 0, w - (offset * 2), h);
+            setTimeout(glitchImg, randInt(100, 300));
+        }, 500);
+    };
+
+    var clear = function() {
+        context.rect(0, 0, w, h);
+        context.fillStyle = '#000';
+        context.fill();
+    };
+
+    var glitchImg = function() {
+        for (var i = 0; i < randInt(1, 16); i++) {
+            var x = (Math.random() * w / 100);
+            if(i % 2){ x = x * -1; }
+            var y = Math.random() * h;
+            var spliceWidth = w - x;
+            var spliceHeight = randInt(5, h / 3);
+            context.drawImage(canvas, 0, y, spliceWidth, spliceHeight, x, y, spliceWidth, spliceHeight);
+            context.drawImage(canvas, spliceWidth, y, x, spliceHeight, 0, y, x, spliceHeight);
+        }
+    };
+
+    var randInt = function(a, b) {
+        return ~~(Math.random() * (b - a) + a);
+    };
+
+});
+
+
+</script>
+
+
+{% endblock content %}
