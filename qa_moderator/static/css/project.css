@@ -6,7 +6,10 @@
 
 
 */
-
+.version {
+  z-index: 3;
+  background-color: red;
+}
 .alert-debug {
   color: black;
   background-color: white;
