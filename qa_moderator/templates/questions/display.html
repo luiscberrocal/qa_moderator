@@ -29,7 +29,7 @@
             var lastItem = data.count;
             for (var i = 0; i < lastItem; i++) {
                 $('.innerCarousel').css('width', (lastItem * 500) + 'px');
-                $('.slider-list').append('<li><div class="chepe"><div class="chepe2">' + myJson[i].question + '</div></div></li>');
+                $('.slider-list').append('<li><div class="chepe"><div class="chepe2">' + myJson[i].id + '.  ' + myJson[i].question + '</div> </div></li>');
             }
 
 
