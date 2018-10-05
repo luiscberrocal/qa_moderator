@@ -1,3 +1,4 @@
+import simple_history
 from django.contrib import admin
 
 # Register your models here.
@@ -5,7 +6,8 @@ from qa_moderator.questions.models import Question
 
 
 @admin.register(Question)
-class QuestionAdmin(admin.ModelAdmin):
+class QuestionAdmin(simple_history.admin.SimpleHistoryAdmin):
     list_display = ('id', 'created', 'approved', 'viewed', 'priority', 'question')
     list_editable = ('approved', 'priority', 'viewed')
     list_filter = ('approved',)
+    history_list_display = ["approved"]
