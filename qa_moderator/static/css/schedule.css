@@ -1,13 +1,17 @@
 .container {
   max-width: 90%;
+  max-height: 1200px;
 }
 
 .schedule-table{
   font-size: 15px;
   z-index: 2;
-  background-color: rgba(46, 114, 164, 0.2);
+  background-color: rgba(46, 114, 164, 0.5);
 }
-
+.wrapper {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
 
 #countdown{
   max-width: 420px;

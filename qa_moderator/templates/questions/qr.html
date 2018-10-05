@@ -3,22 +3,32 @@
 
 {% block content %}
 
-  <div class="row">
-    <div class="col-md-12">
-      <h2 class="text-center text-white mb-4">Thank you</h2>
-
-        <div class="col-md-8 mx-auto">
-          <div class="card-body">
-            <form action="" method="get">
-              <a class="btn btn-success btn-lg text-center" href="{% url 'questions:create-question' %}">New
-                Question</a>
-            </form>
-          </div>
-      </div>
+    <div class="row">
+        <div class="col-md-4 col align-self-center">
+            <h1>Preguntas y Respuestas</h1>
+        </div>
+        <div class="col-md-8">
+            <img src="{% static 'images/frame.png' %}" class="" alt="...">
+        </div>
+    </div>
+    <!--/row-->
+    <div class="row">
+        <div class="col-11">
+            <div class="alert alert-primary" role="alert">
+            </div>
+        </div>
     </div>
     <!--/col-->
-  </div>
-  <!--/row-->
+    <div class="row">
+        <div class="col-md-4 col align-self-center">
+            <h1>Nube de Palabras</h1>
+        </div>
+        <div class="col-md-8">
+            <img src="{% static 'images/frame.png' %}" class="" alt="...">
+        </div>
+    </div>
+    <!--/col-->
+    <!--/row-->
 
 
 {% endblock content %}
