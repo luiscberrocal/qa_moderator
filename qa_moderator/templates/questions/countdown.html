@@ -1,0 +1,31 @@
+{% extends "_base.html" %}
+{% load static i18n %}
+{% block extra_css %}
+    <link href="{% static 'css/schedule.css' %}" rel="stylesheet">
+{% endblock extra_css %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center text-white mb-4">REUNIÓN DE COMUNICACIÓN</h2>
+            <h2 class="text-center text-white mb-4">DE DIVISIÓN DE TECNOLOGÍA E INFORMÁTICA</h2>
+        </div>
+    </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div id="countdown">
+			<div id="countdowndays" class="box"><p></p></div>
+			<div id="countdownhours" class="box"><p></p></div>
+			<div id="countdownmins" class="box"><p></p></div>
+			<div id="countdownsecs" class="box"><p></p></div>
+        </div>
+    </div>
+    <!--/col-->
+  </div>
+  <!--/row-->
+
+
+{% endblock content %}
+
+  {% block extra_js %}
+<script src="{% static 'js/countdown.js' %}"></script>
+  {% endblock extra_js %}
