@@ -42,13 +42,14 @@
 <div class="wrapper">
 
   <div class="container py-5">
+
     {% block content %}
 
 
     {% endblock content %}
     <div class="row justify-content-center">
       <div class="col-md-6 version-content">
-        <div class=" version">Version: 1.0.1</div>
+        <div class=" version">Version: 1.1.0</div>
       </div>
     </div>
     <!--/col-->
@@ -90,6 +91,8 @@
 <!-- place project specific Javascript in this file -->
 
 <script src="{% static 'js/project.js' %}"></script>
+  {% block extra_js %}
 
+  {% endblock extra_js %}
 </body>
 </html>
