@@ -1,39 +1,38 @@
 {% load static i18n %}<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>{% block title %}QA Moderator{% endblock title %}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block title %}QA Moderator{% endblock title %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-  <!--[if lt IE 9]>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
   <![endif]-->
 
-  <link rel="icon" href="{% static 'images/favicons/favicon.ico' %}">
+    <link rel="icon" href="{% static 'images/favicons/favicon.ico' %}">
 
 
-  <!-- Latest compiled and minified Bootstrap 4.1.1 CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-        integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <!-- Latest compiled and minified Bootstrap 4.1.1 CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
-  ©
-  <!-- Your stuff: Third-party CSS libraries go here -->
+    <!-- Your stuff: Third-party CSS libraries go here -->
 
-  <!-- This file stores project-specific CSS -->
+    <!-- This file stores project-specific CSS -->
 
-  <link href="{% static 'css/project.css' %}" rel="stylesheet">
-  {% block extra_css %}
+    <link href="{% static 'css/project.css' %}" rel="stylesheet">
+    {% block extra_css %}
 
 
-  {% endblock extra_css %}
-  <!--
- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
- -->
-  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    {% endblock extra_css %}
+    <!--
+   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+   -->
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 </head>
 
 <body>
@@ -41,9 +40,9 @@
 
 <div class="wrapper">
 
-  <div class="container py-5">
+    <div class="container py-5">
 
-    {% block content %}
+        {% block content %}
 
 
     {% endblock content %}
@@ -52,25 +51,23 @@
         <div class=" version">Version: 1.0.4</div>
       </div>
     </div>
-    <!--/col-->
-  </div>
-  <!--/row-->
-</div>
-<!--/container-->
+    <!--/row-->
+
+    <!--/container-->
 
 
-<ul class="bg-bubbles">
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-</ul>
+    <ul class="bg-bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
 </div>
 
 
@@ -91,8 +88,8 @@
 <!-- place project specific Javascript in this file -->
 
 <script src="{% static 'js/project.js' %}"></script>
-  {% block extra_js %}
+{% block extra_js %}
 
-  {% endblock extra_js %}
+{% endblock extra_js %}
 </body>
 </html>
