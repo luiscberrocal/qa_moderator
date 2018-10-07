@@ -18,7 +18,7 @@ class CreateQuestionView(CreateView):
 create_question_view = CreateQuestionView.as_view()
 
 
-class QuestionsDisplayView(TemplateView):
+class QuestionsDisplayView(LoginRequiredMixin, TemplateView):
 
     def get_template_names(self):
         if True:
