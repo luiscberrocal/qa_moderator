@@ -22,7 +22,6 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     path("questions/", include("qa_moderator.questions.urls", namespace='questions')),
     path("questions/api/", include("qa_moderator.questions.api.urls", namespace='questions-api')),
-    path("questions/display/", TemplateView.as_view(template_name="questions/display.html"), name="display",),
     # Your stuff: custom urls includes go here
 ] + static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT

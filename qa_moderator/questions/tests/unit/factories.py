@@ -24,6 +24,6 @@ class QuestionFactory(DjangoModelFactory):
         model = Question
 
     approved = Iterator([True, False])
-    viewed = Iterator([True, False])
+    viewed = Iterator([False, True])
     priority = LazyAttribute(lambda o: randint(1, 100))
     question = LazyAttribute(lambda x: faker.paragraph(nb_sentences=3, variable_nb_sentences=True))
