@@ -1,4 +1,5 @@
 from django import forms
+from django.conf import settings
 
 from qa_moderator.questions.models import Question
 
@@ -14,7 +15,7 @@ class QuestionForm(forms.ModelForm):
         fields = ['id', 'question', 'moderator_num']
 
     def save(self, commit=True):
-        max_num_moderators = 3
+        max_num_moderators = settings.QUESTIONS_MAX_MODERATORS_NUM
         question_data = self.cleaned_data
         current_moderator = 1
         if Question.objects.count() > 0:
