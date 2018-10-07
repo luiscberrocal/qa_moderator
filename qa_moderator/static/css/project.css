@@ -344,3 +344,6 @@ form button:hover {
 .login-form #div_id_remember{
   display: none;
 }
+.qr-url{
+  font-size: 3em;
+}
