@@ -6,13 +6,15 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, TemplateView
 
+from qa_moderator.questions.forms import QuestionForm
 from qa_moderator.questions.models import Question
 
 
 class CreateQuestionView(CreateView):
     model = Question
     success_url = reverse_lazy('questions:thanks')
-    fields = ('id', 'question')
+    #fields = ('id', 'question')
+    form_class = QuestionForm
 
     def get_template_names(self):
         if settings.QUESTIONS_ACTIVE:

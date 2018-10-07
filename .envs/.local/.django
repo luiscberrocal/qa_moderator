@@ -6,3 +6,4 @@ USE_DOCKER=yes
 # ------------------------------------------------------------------------------
 REDIS_URL=redis://redis:6379/0
 
+QUESTIONS_ACTIVE=True
