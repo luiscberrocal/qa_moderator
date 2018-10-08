@@ -4,44 +4,40 @@
 
 {% block content %}
 
-
-  <div class="row">
-    <div class="col-md-8 col-11 mx-auto">
-
-      <!-- form card login -->
-      <div class="card rounded-0">
-        <div class="card-header">
-          <h3 class="mb-0">Q&A</h3>
+    <div class="row">
+        <div class="col-md-8 col-11 mx-auto">
+            <!-- form card login -->
+            <div class="card rounded-0">
+                <div class="card-header">
+                    <h3 class="mb-0">{{ form.instance.text }}</h3>
+                </div>
+                <div class="card-body">
+                    <form class="form" role="form" autocomplete="off" id="formLogin" novalidate=""
+                          method="POST">
+                        {% csrf_token %}
+                        {% for q in form.instance.questions.all %}
+                            <div class="form-group">
+                                <label class="my-1 mr-2 choice-title"
+                                       for="inlineFormCustomSelectPref">{{ q.content }}</label>
+                                <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                                    <option selected>Choose...</option>
+                                    {% for choice in q.choices.all %}
+                                        <option value="{{ choice.numeric_value }}">{{ choice.value }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        {% endfor %}
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success btn-lg float-right" id="btnLogin">Submit
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <!--/card-block-->
+            </div>
+            <!-- /form card login -->
         </div>
-        <div class="card-body">
-
-          <form class="form" role="form" autocomplete="off" id="formLogin" novalidate=""
-                method="POST">
-            {% csrf_token %}
-            {{ form|crispy }}
-            <button type="submit" class="btn btn-success btn-lg float-right" id="btnLogin">Submit
-            </button>
-          </form>
-        </div>
-        <!--/card-block-->
-      </div>
-      <!-- /form card login -->
-
     </div>
-    {% for q in form.instance.questions.all %}
-      <div class="row">
-        {{ q.content }}
-        {% for choice in q.choices.all %}
-          <div class="row">
-            {{ choice.value }}
-          </div>
-        {% endfor %}
-      </div>
-    {% endfor %}
-
-  </div>
-  <!--/row-->
-
-
+    <!--/row-->
 
 {% endblock content %}
