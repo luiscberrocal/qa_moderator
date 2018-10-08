@@ -72,6 +72,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     'qa_moderator.users.apps.UsersAppConfig',
     'qa_moderator.questions.apps.QuestionsConfig',
+    'qa_moderator.polls.apps.PollsConfig',
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

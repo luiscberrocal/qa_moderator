@@ -1,0 +1,47 @@
+{% extends "_base.html" %}
+{% load static i18n %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+  <div class="row">
+    <div class="col-md-8 col-11 mx-auto">
+
+      <!-- form card login -->
+      <div class="card rounded-0">
+        <div class="card-header">
+          <h3 class="mb-0">Q&A</h3>
+        </div>
+        <div class="card-body">
+
+          <form class="form" role="form" autocomplete="off" id="formLogin" novalidate=""
+                method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-success btn-lg float-right" id="btnLogin">Submit
+            </button>
+          </form>
+        </div>
+        <!--/card-block-->
+      </div>
+      <!-- /form card login -->
+
+    </div>
+    {% for q in form.instance.questions.all %}
+      <div class="row">
+        {{ q.content }}
+        {% for choice in q.choices.all %}
+          <div class="row">
+            {{ choice.value }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+
+  </div>
+  <!--/row-->
+
+
+
+{% endblock content %}
