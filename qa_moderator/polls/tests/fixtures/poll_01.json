@@ -1,0 +1,27 @@
+{
+  "poll_name": "Encuesta de Primera Reunión de Comunicación de IST",
+  "pub_date": "2018-10-08",
+  "questions": [
+    {
+      "content": "Qué le pareció la comida?",
+      "choices": [
+        {
+          "value": "Muy bueno",
+          "numeric_value": 5
+        },
+        {
+          "value": "Bueno",
+          "numeric_value": 4
+        },
+        {
+          "value": "Malo",
+          "numeric_value": 2
+        },
+        {
+          "value": "Muy malo",
+          "numeric_value": 1
+        }
+      ]
+    }
+  ]
+}

@@ -33,9 +33,9 @@ class Answer(TimeStampedModel):
     question = models.ForeignKey(Question, verbose_name=_('question'), related_name='answers',
                                  on_delete=models.CASCADE)
     choice = models.ForeignKey(Choice, verbose_name=_('choice'),
-                                  related_name='answers',
-                                  on_delete=models.CASCADE,
-                                  null=True)
+                               related_name='answers',
+                               on_delete=models.CASCADE,
+                               null=True)
     content = models.CharField(_('content'), max_length=255, null=True)
 
     def __str__(self):
