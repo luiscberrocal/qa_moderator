@@ -22,6 +22,48 @@
           "numeric_value": 1
         }
       ]
+    },
+    {
+      "content": "Qué le pareció los prentadores?",
+      "choices": [
+        {
+          "value": "Muy buenos",
+          "numeric_value": 5
+        },
+        {
+          "value": "Buenos",
+          "numeric_value": 4
+        },
+        {
+          "value": "Malos",
+          "numeric_value": 2
+        },
+        {
+          "value": "Muy malos",
+          "numeric_value": 1
+        }
+      ]
+    },
+    {
+      "content": "Cual fue su presentador favorito?",
+      "choices": [
+        {
+          "value": "Batman",
+          "numeric_value": 5
+        },
+        {
+          "value": "Robin",
+          "numeric_value": 4
+        },
+        {
+          "value": "Spiderman",
+          "numeric_value": 2
+        },
+        {
+          "value": "Cable",
+          "numeric_value": 1
+        }
+      ]
     }
   ]
 }
