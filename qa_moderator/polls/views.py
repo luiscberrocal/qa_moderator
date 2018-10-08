@@ -17,10 +17,11 @@ class PollView(UpdateView):
 
     def get(self, request, *args, **kwargs):
         response = super(PollView, self).get(request, *args, **kwargs)
-        if 'filled_poll_rci_2019-' in request.COOKIES:
-            return HttpResponseRedirect('/')
+        if 'filled_poll_rci_2019' in request.COOKIES:
+            return HttpResponseRedirect('/polls/thanks/')
 
         return response
+
 
     def post(self, request, *args, **kwargs):
         ip_address = request.META.get('HTTP_X_FORWARDED_FOR', '') or request.META.get('REMOTE_ADDR')
@@ -35,6 +36,9 @@ class PollView(UpdateView):
                 choice = Choice.objects.get(pk=choice_id)
                 answer = Answer.objects.create(question=question, choice=choice, content=choice.value)
 
-        response = HttpResponseRedirect('/')
-        response.set_cookie('filled_poll_rci_2019-1', ip_address)
+        response = HttpResponseRedirect('/polls/thanks/')
+        response.set_cookie('filled_poll_rci_2019', ip_address)
         return response
+
+
+
