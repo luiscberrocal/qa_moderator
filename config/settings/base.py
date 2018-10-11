@@ -6,7 +6,7 @@ import environ
 
 ROOT_DIR = environ.Path(__file__) - 3  # (qa_moderator/config/settings/base.py - 3 = qa_moderator/)
 APPS_DIR = ROOT_DIR.path('qa_moderator')
-
+TEST_OUTPUT_PATH = ROOT_DIR.path('output').root
 env = environ.Env()
 
 READ_DOT_ENV_FILE = env.bool('DJANGO_READ_DOT_ENV_FILE', default=False)

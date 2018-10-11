@@ -327,3 +327,5 @@ qa_moderator/media/
 .env
 .envs/*
 !.envs/.local/
+
+output/
