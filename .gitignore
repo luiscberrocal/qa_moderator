@@ -321,11 +321,14 @@ tags
 
 ### Project template
 
-qa_moderator/media/
+#qa_moderator/media/
 
 .pytest_cache/
-.env
-.envs/*
-!.envs/.local/
+.env
+
+.envs/*
+
+!.envs/.local/
+
 
 output/
