@@ -3,7 +3,7 @@
 
 {% block content %}
 
-    <div class="row">
+{% comment %}    <div class="row">
         <div class="col-md-12">
             <div class="home-image-body">
                 <div id="main" class="home-image-container">
@@ -13,7 +13,7 @@
                     <img src="{% static 'images/rci_ists.jpg' %}"/>
                 </div>
             </div>
-        </div>
+        </div>{% endcomment %}
         <div class="col-md-12 version-content">
             <a class="btn btn-success btn-lg text-center" href="{% url 'questions:create-question' %}">New
                 Question ?</a>
