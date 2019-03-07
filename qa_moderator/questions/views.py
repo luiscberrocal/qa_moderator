@@ -17,10 +17,11 @@ class CreateQuestionView(CreateView):
     form_class = QuestionForm
 
     def get_template_names(self):
-        if settings.QUESTIONS_ACTIVE:
-            return ['questions/question.html']
-        else:
-            return ['questions/countdown.html']
+        return ['questions/question.html']
+        #if settings.QUESTIONS_ACTIVE:
+           # return ['questions/question.html']
+        # else:
+          #  return ['questions/countdown.html']
 
 
 create_question_view = CreateQuestionView.as_view()
