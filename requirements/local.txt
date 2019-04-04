@@ -1,6 +1,6 @@
 -r ./base.txt
 
-Werkzeug==0.14.1  # https://github.com/pallets/werkzeug
+Werkzeug==0.15.2  # https://github.com/pallets/werkzeug
 ipdb==0.12  # https://github.com/gotcha/ipdb
 Sphinx==1.8.1  # https://github.com/sphinx-doc/sphinx
 psycopg2==2.7.7 --no-binary psycopg2  # https://github.com/psycopg/psycopg2
@@ -26,3 +26,4 @@ django-coverage-plugin==1.6.0  # https://github.com/nedbat/django_coverage_plugi
 pytest-django==3.4.8  # https://github.com/pytest-dev/pytest-django
 
 django-test-tools==1.5.3
+django-import-export==1.2.0 # https://github.com/django-import-export/django-import-export
