@@ -4,6 +4,8 @@ from django.db import models
 from model_utils.models import TimeStampedModel
 from simple_history.models import HistoricalRecords
 
+from qa_moderator.events.models import Event
+
 
 class Question(TimeStampedModel):
     approved = models.BooleanField(default=False,
@@ -18,6 +20,8 @@ class Question(TimeStampedModel):
     moderator_num = models.IntegerField(default=0,
                                         help_text='Field to separate questions '
                                                   'between moderators. Zero means not assigned')
+    event = models.ForeignKey(Event, verbose_name='event', related_name='questions',
+                              null=True, on_delete=models.CASCADE)
     history = HistoricalRecords()
 
     def __str__(self):
