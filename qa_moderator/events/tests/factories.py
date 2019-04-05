@@ -25,7 +25,7 @@ class EventFactory(DjangoModelFactory):
     name = LazyAttribute(lambda x: faker.text(max_nb_chars=60))
     title = LazyAttribute(lambda x: faker.text(max_nb_chars=60))
     event_date = LazyAttribute(lambda x: faker.date_time_between(start_date="-1y", end_date="now",
-                                                           tzinfo=timezone(settings.TIME_ZONE)))
+                                                           tzinfo=timezone(settings.TIME_ZONE)).date())
     office_name = LazyAttribute(lambda x: faker.text(max_nb_chars=80))
     fiscal_year = LazyAttribute(lambda o: randint(1, 100))
     start_availability = LazyAttribute(lambda x: faker.date_time_between(start_date="-1y", end_date="now",
