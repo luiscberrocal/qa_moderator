@@ -1,8 +1,6 @@
-from django.conf import settings
 from django.core.management import BaseCommand
 
-from qa_moderator.questions.models import Question
-from qa_moderator.questions.tests.unit.factories import QuestionFactory
+from qa_moderator.questions.tests.factories import QuestionFactory
 
 
 class Command(BaseCommand):

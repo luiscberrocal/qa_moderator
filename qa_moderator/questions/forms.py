@@ -9,10 +9,11 @@ class QuestionForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(QuestionForm, self).__init__(*args, **kwargs)
         self.fields['moderator_num'].widget = forms.HiddenInput()
+        self.fields['event'].widget = forms.HiddenInput()
 
     class Meta:
         model = Question
-        fields = ['id', 'question', 'moderator_num']
+        fields = ['id', 'question', 'moderator_num', 'event']
 
     def save(self, commit=True):
         max_num_moderators = settings.QUESTIONS_MAX_MODERATORS_NUM
