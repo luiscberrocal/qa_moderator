@@ -2,7 +2,7 @@ from django.forms import model_to_dict
 from django.test import TestCase
 
 from qa_moderator.questions.models import Question
-from qa_moderator.questions.tests.unit.factories import QuestionFactory
+from qa_moderator.questions.tests.factories import QuestionFactory
 
 
 class TestCaseQuestion(TestCase):
@@ -44,3 +44,4 @@ class TestCaseQuestion(TestCase):
         self.assertIsNotNone(question.priority)
         self.assertIsNotNone(question.question)
         self.assertIsNotNone(question.moderator_num)
+        self.assertIsNotNone(question.event)

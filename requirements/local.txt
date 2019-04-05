@@ -27,3 +27,4 @@ pytest-django==3.4.8  # https://github.com/pytest-dev/pytest-django
 
 django-test-tools==1.5.3
 django-import-export==1.2.0 # https://github.com/django-import-export/django-import-export
+django-test-plus==1.1.1 # https://github.com/revsys/django-test-plus

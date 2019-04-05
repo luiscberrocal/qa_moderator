@@ -2,7 +2,7 @@ from django.test import TestCase
 from django_test_tools.utils import create_output_filename_with_date
 
 from qa_moderator.questions.excel import QuestionExcelAdapter
-from qa_moderator.questions.tests.unit.factories import QuestionFactory
+from qa_moderator.questions.tests.factories import QuestionFactory
 
 
 class QuestionExcelAdapterTest(TestCase):
