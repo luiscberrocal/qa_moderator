@@ -15,7 +15,8 @@ from factory.fuzzy import FuzzyText, FuzzyInteger
 from faker import Factory as FakerFactory
 
 from qa_moderator.events.models import Event
-from qa_moderator.questions.models import Question
+from ...events.tests.factories import EventFactory
+from ..models import Question
 
 faker = FakerFactory.create()
 
@@ -28,4 +29,4 @@ class QuestionFactory(DjangoModelFactory):
     viewed = Iterator([False, True])
     priority = LazyAttribute(lambda o: randint(1, 100))
     question = LazyAttribute(lambda x: faker.paragraph(nb_sentences=3, variable_nb_sentences=True))
-    event = SubFactory(Event)
+    event = SubFactory(EventFactory)

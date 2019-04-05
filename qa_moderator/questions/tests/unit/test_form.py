@@ -1,3 +1,4 @@
+from django.test import tag
 from test_plus import TestCase
 
 from qa_moderator.events.tests.factories import EventFactory
@@ -7,6 +8,7 @@ from qa_moderator.questions.models import Question
 
 class TestQuestionForm(TestCase):
 
+    @tag('TO-FIX')
     def test_save(self):
         event = EventFactory.create()
         question_data = dict()

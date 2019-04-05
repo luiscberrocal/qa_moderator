@@ -1,4 +1,4 @@
-from django.test import TestCase, Client
+from django.test import TestCase, Client, tag
 from django.urls import reverse
 
 from qa_moderator.events.tests.factories import EventFactory
@@ -6,6 +6,7 @@ from qa_moderator.events.tests.factories import EventFactory
 
 class TestCreateQuestionView(TestCase):
 
+    @tag('TO-FIX')
     def test_post(self):
         event = EventFactory.create()
         url = reverse('questions:create-question-event', kwargs={'event_pk': event.id})

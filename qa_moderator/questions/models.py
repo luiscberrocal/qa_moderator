@@ -20,7 +20,8 @@ class Question(TimeStampedModel):
     moderator_num = models.IntegerField(default=0,
                                         help_text='Field to separate questions '
                                                   'between moderators. Zero means not assigned')
-    event = models.ForeignKey(Event, verbose_name='event', related_name='questions', null=True, on_delete=models.CASCADE)
+    event = models.ForeignKey(Event, verbose_name='event', related_name='questions',
+                              null=True, on_delete=models.CASCADE)
     history = HistoricalRecords()
 
     def __str__(self):
