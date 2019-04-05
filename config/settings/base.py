@@ -68,6 +68,7 @@ THIRD_PARTY_APPS = [
     'allauth.socialaccount',
     'rest_framework',
     'simple_history',
+    'import_export',
 ]
 LOCAL_APPS = [
     'qa_moderator.users.apps.UsersAppConfig',
