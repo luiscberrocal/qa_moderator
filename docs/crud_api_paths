@@ -1,0 +1,7 @@
+urlpatterns = [
+        path(r'$MODEL_LOWER$/', $MODEL$ListAPIView.as_view(), name='list-$MODEL_LOWER$'),
+        path(r'^$MODEL_LOWER$/create/', $MODEL$CreateAPIView.as_view(), name='create-$MODEL_LOWER$'),
+        path(r'^$MODEL_LOWER$/update/<int:pk>/', $MODEL$DetailAPIView.as_view(), name='update-$MODEL_LOWER$'),
+        path(r'^$MODEL_LOWER$/delete/<int:pk>/', $MODEL$DetailAPIView.as_view(), name='delete-$MODEL_LOWER$'),
+        path(r'^$MODEL_LOWER$/<int:pk>/', $MODEL$DetailAPIView.as_view(), name='detail-$MODEL_LOWER$'),
+    ]
