@@ -58,7 +58,7 @@ DJANGO_APPS = [
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'django.contrib.humanize', # Handy template tags
+    'django.contrib.humanize',  # Handy template tags
     'django.contrib.admin',
 ]
 THIRD_PARTY_APPS = [
@@ -68,12 +68,13 @@ THIRD_PARTY_APPS = [
     'allauth.socialaccount',
     'rest_framework',
     'simple_history',
+    'import_export',
 ]
 LOCAL_APPS = [
     'qa_moderator.users.apps.UsersAppConfig',
     'qa_moderator.questions.apps.QuestionsConfig',
     'qa_moderator.polls.apps.PollsConfig',
-    # Your stuff: custom apps go here
+    'qa_moderator.events.apps.EventsConfig'
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -90,7 +91,7 @@ MIGRATION_MODULES = {
 # https://docs.djangoproject.com/en/dev/ref/settings/#authentication-backends
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    #'allauth.account.auth_backends.AuthenticationBackend',
+    # 'allauth.account.auth_backends.AuthenticationBackend',
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-user-model
 AUTH_USER_MODEL = 'users.User'
@@ -131,6 +132,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/dev/ref/settings/#middleware
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -249,6 +251,6 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 300,
 }
 
-
 QUESTIONS_ACTIVE = env.bool('QUESTIONS_ACTIVE', default=True)
 QUESTIONS_MAX_MODERATORS_NUM = env.int('QUESTIONS_MAX_MODERATORS_NUM', 3)
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

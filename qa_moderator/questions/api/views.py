@@ -1,7 +1,7 @@
-from rest_framework.generics import ListAPIView
+from rest_framework.generics import ListAPIView, RetrieveUpdateDestroyAPIView, CreateAPIView
 
-from qa_moderator.questions.api.serializers import QuestionSerializer
-from qa_moderator.questions.models import Question
+from .serializers import QuestionSerializer, QuestionWriteSerializer
+from ..models import Question
 
 
 class QuestionListAPIView(ListAPIView):
@@ -10,6 +10,15 @@ class QuestionListAPIView(ListAPIView):
     def get_queryset(self):
         qs = Question.objects.filter(approved=True, viewed=False).order_by('priority')
         return qs
-        
 
-question_list_api_view = QuestionListAPIView.as_view()
+
+class QuestionDetailAPIView(RetrieveUpdateDestroyAPIView):
+    serializer_class = QuestionSerializer
+    queryset = Question.objects.all()
+
+    def get_object(self):
+        return super(QuestionDetailAPIView, self).get_object()
+
+
+class QuestionCreateAPIView(CreateAPIView):
+    serializer_class = QuestionWriteSerializer
