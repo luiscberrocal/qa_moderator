@@ -14,7 +14,7 @@
                   box
                   label="Label"
                   auto-grow
-                  value="The Woodman set to work at once, and so sharp was his axe that the tree was soon chopped nearly through."
+                  value=""
                 ></v-textarea>
               </v-container>
             </v-layout>
@@ -42,7 +42,7 @@
   export default {
     data() {
       return {
-        username: '',
+        event: null,
         password: ''
       }
     },
@@ -53,6 +53,14 @@
         //this.$store.dispatch('login', {username: this.username, password: this.password});
         this.$store.dispatch('login', {username: this.username, password: this.password});
       },
+    },
+    computed: {
+      title() {
+        return this.$store.getters.event.name;
+      }
+    },
+    created(){
+      this.$store.dispatch('GET_CURRENT_EVENT');
     },
     name: "AskQuestion"
   }
