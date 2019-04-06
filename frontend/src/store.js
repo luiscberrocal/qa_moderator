@@ -1,10 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import axios from 'axios'
+import axios from './django-auth'
 
-const instance = axios.create({
-  baseURL: process.env.API_URL
-})
 
 Vue.use(Vuex)
 
@@ -14,19 +11,28 @@ export default new Vuex.Store({
     question: null
   },
   mutations: {
-    setEvent(state, event){
+    setEvent(state, event) {
       state.event = event;
     },
-    setQuestion(state, question){
+    setQuestion(state, question) {
       state.question = question;
     }
   },
   actions: {
-    'GET_CURRENT_EVENT'({commit}, eventId){
+    'GET_CURRENT_EVENT'({commit}, eventId) {
       let dummyEvent = {name: 'RCI AC', id: 1};
       console.log('API URL', process.env.VUE_APP_API_URL);
       console.log('NODE Env', process.env.NODE_ENV);
-      commit('setEvent', dummyEvent);
+      const url = `/events/api/v1/event/${eventId}/`;
+      axios.get(url)
+        .then((response) => {
+          console.log('Event data', response.data);
+          commit('setEvent', response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+      //commit('setEvent', dummyEvent);
     }
   },
   getters: {

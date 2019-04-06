@@ -60,7 +60,7 @@
       }
     },
     created(){
-      this.$store.dispatch('GET_CURRENT_EVENT');
+      this.$store.dispatch('GET_CURRENT_EVENT', 1);
     },
     name: "AskQuestion"
   }
