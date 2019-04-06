@@ -54,7 +54,7 @@ build-spa: clean ## package
 
 release-patch: test patch build-spa
 
-release-minor: test minor #build-spa
+release-minor: test minor build-spa
 
 heroku:
 	git push origin master
