@@ -324,7 +324,7 @@ tags
 #qa_moderator/media/
 
 .pytest_cache/
-.env
+
 
 .envs/*
 
