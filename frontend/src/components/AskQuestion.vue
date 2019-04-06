@@ -54,14 +54,7 @@
         this.$store.dispatch('login', {username: this.username, password: this.password});
       },
     },
-    computed: {
-      title() {
-        return this.$store.getters.event.name;
-      }
-    },
-    created(){
-      this.$store.dispatch('GET_CURRENT_EVENT', 1);
-    },
+
     name: "AskQuestion"
   }
 </script>
