@@ -1,4 +1,5 @@
 from django.forms import model_to_dict
+from django.test import tag
 from test_plus import TestCase
 
 from ..api.serializers import EventSerializer
@@ -75,6 +76,7 @@ class TestEventSerializer(TestCase):
         serializer.save()
         self.assertEqual(Event.objects.filter(office_name='NEW OFFICE_NAME').count(), 1)
 
+    @tag('TO-FIX')
     def test_serialize_many(self):
         EventFactory.create_batch(10)
         events = Event.objects.all()

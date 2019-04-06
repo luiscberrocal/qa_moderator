@@ -30,13 +30,13 @@ clean-media:
 
 
 patch: clean ## package and upload a release
-	git-flow release start $(REL)
+	git flow release start $(REL)
 	bumpversion patch
 	git add .
 	git commit -m "Updating version to $(REL)"
 
 minor: clean ## package and upload a release
-	git-flow release start $(REL)
+	git flow release start $(REL)
 	bumpversion minor
 	git add .
 	git commit -m "Updating version to $(REL)"
@@ -54,7 +54,7 @@ build-spa: clean ## package
 
 release-patch: test patch build-spa
 
-release-minor: test minor #build-spa
+release-minor: test minor lowbuild-spa
 
 heroku:
 	git push origin master

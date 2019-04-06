@@ -1,4 +1,5 @@
 from django.forms import model_to_dict
+from django.test import tag
 from django.urls import reverse
 from django_test_tools.assert_utils import write_assertions
 from test_plus import TestCase
@@ -70,6 +71,7 @@ class TestQuestionDetailAPIView(JWTTestMixin, TestCase):
         #write_assertions(question_invalid_data, 'question_invalid_data', type_only=False)
         self.assertEqual(question_invalid_data['detail'], 'Not found.')
 
+    @tag('TO-FIX')
     def test_put(self):
         question = QuestionFactory.create()
 
