@@ -60,7 +60,7 @@
         this.$store.dispatch('login', {username: this.username, password: this.password});
       },
     },
-    name: "Login"
+    name: "AskQuestion"
   }
 </script>
 
