@@ -69,6 +69,7 @@ THIRD_PARTY_APPS = [
     'rest_framework',
     'simple_history',
     'import_export',
+    'corsheaders',
 ]
 LOCAL_APPS = [
     'qa_moderator.users.apps.UsersAppConfig',
@@ -134,6 +135,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -151,7 +153,7 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
 STATICFILES_DIRS = [
     str(ROOT_DIR.path('frontend', 'dist', 'static')),
-    #str(APPS_DIR.path('static')),
+    # str(APPS_DIR.path('static')),
 ]
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
 STATICFILES_FINDERS = [
@@ -176,7 +178,7 @@ TEMPLATES = [
         # https://docs.djangoproject.com/en/dev/ref/settings/#template-dirs
         'DIRS': [
             str(ROOT_DIR.path('frontend', 'dist')),
-            #str(APPS_DIR.path('templates')),
+            # str(APPS_DIR.path('templates')),
         ],
         'OPTIONS': {
             # https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
