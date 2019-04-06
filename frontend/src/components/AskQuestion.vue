@@ -14,7 +14,7 @@
                   box
                   label="Label"
                   auto-grow
-                  value=""
+                  :value="question"
                 ></v-textarea>
               </v-container>
             </v-layout>
@@ -24,7 +24,7 @@
               <v-flex xs12>
                 <v-layout align-center justify-end row fill-height>
                   <v-btn right dark color="indigo"
-                         @click.prevent="login">Submit
+                         @click.prevent="sendQuestion">Submit
                   </v-btn>
                 </v-layout>
               </v-flex>
@@ -43,15 +43,14 @@
     data() {
       return {
         event: null,
-        password: ''
+        question: 'My pregunta'
       }
     },
     methods: {
-      login() {
+      sendQuestion() {
         const router = this.$router;
         const route = this.$route;
-        //this.$store.dispatch('login', {username: this.username, password: this.password});
-        this.$store.dispatch('login', {username: this.username, password: this.password});
+        this.$store.dispatch('SEND_QUESTION', this.question)
       },
     },
 
