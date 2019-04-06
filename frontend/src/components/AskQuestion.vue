@@ -4,25 +4,19 @@
       <v-flex xs12 md6 offset-md3>
         <v-card>
           <v-toolbar dark color="teal">
-            <v-toolbar-title>QA </v-toolbar-title>
+            <v-toolbar-title>Question</v-toolbar-title>
           </v-toolbar>
           <v-card-text>
             <v-layout row wrap>
-              <v-flex xs12>
-                <v-text-field
-                  label="User name"
-                  prepend-icon="person"
-                  v-model="username"
-                ></v-text-field>
-              </v-flex>
-              <v-flex xs12>
-                <v-text-field
-                  label="Password"
-                  prepend-icon="lock"
-                  type="password"
-                  v-model="password"
-                ></v-text-field>
-              </v-flex>
+              <v-container fluid grid-list-md>
+                <v-textarea
+                  name="input-7-1"
+                  box
+                  label="Label"
+                  auto-grow
+                  value=""
+                ></v-textarea>
+              </v-container>
             </v-layout>
           </v-card-text>
           <v-card-actions>
@@ -30,7 +24,7 @@
               <v-flex xs12>
                 <v-layout align-center justify-end row fill-height>
                   <v-btn right dark color="indigo"
-                         @click.prevent="login">Login
+                         @click.prevent="login">Submit
                   </v-btn>
                 </v-layout>
               </v-flex>
@@ -48,7 +42,7 @@
   export default {
     data() {
       return {
-        username: '',
+        event: null,
         password: ''
       }
     },
@@ -60,7 +54,8 @@
         this.$store.dispatch('login', {username: this.username, password: this.password});
       },
     },
-    name: "Login"
+
+    name: "AskQuestion"
   }
 </script>
 

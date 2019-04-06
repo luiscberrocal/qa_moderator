@@ -23,6 +23,7 @@ urlpatterns = [
                   path("questions/", include("qa_moderator.questions.urls", namespace='questions')),
                   path("polls/", include("qa_moderator.polls.urls", namespace='polls')),
                   path("questions/api/v1/", include("qa_moderator.questions.api.urls", namespace='questions-api')),
+                  path("events/api/v1/", include("qa_moderator.events.api.urls", namespace='events-api')),
                   # Your stuff: custom urls includes go here
               ] + static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
