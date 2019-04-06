@@ -8,12 +8,10 @@ services:
       context: .
       dockerfile: compose/local/vue2/Dockerfile
     image: qa_moderator_local_vuejs2
-#    depends_on:
-#    - django
     volumes:
-      - .:/app
+      - ./frontend:/app
     environment:
       - CHOKIDAR_USEPOLLING=true
-    command: ""
-#    ports
-#      - "8080:8080"
+    ports:
+      - "8080:8080"
+

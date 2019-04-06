@@ -1,4 +1,5 @@
 from django.forms import model_to_dict
+from django.test import tag
 from test_plus import TestCase
 
 from ..api.serializers import QuestionSerializer, QuestionWriteSerializer
@@ -64,6 +65,7 @@ class TestQuestionWriteSerializer(TestCase):
         serializer.save()
         self.assertEqual(Question.objects.filter(question='NEW QUESTION').count(), 1)
 
+    @tag('TO-FIX')
     def test_serialize_many(self):
         QuestionFactory.create_batch(10)
         questions = Question.objects.all()
