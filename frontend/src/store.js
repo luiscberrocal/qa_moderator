@@ -35,9 +35,12 @@ export default new Vuex.Store({
       //commit('setEvent', dummyEvent);
     },
     'SEND_QUESTION'({commit, getters}, question) {
+      const csrftoken = $cookies.get('csrftoken');
+      //console.log('csrftoken', csrftoken)
+      const headers = {headers: { 'X-CSRFToken': csrftoken}}
       const event = getters.event;
       const data = {question: question, event: event.id, moderator_num: 1}
-      console.log('Question data', data);
+      console.log('Question data', data, headers);
       const url = `/questions/api/v1/question/create/`;
       axios.post(url, data)
         .then((response) => {
