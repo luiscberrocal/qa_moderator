@@ -9,12 +9,13 @@
           <v-card-text>
             <v-layout row wrap>
               <v-container fluid grid-list-md>
+
                 <v-textarea
                   name="input-7-1"
                   box
-                  label="Label"
+                  label=""
                   auto-grow
-                  value=""
+                  v-model="question"
                 ></v-textarea>
               </v-container>
             </v-layout>
@@ -24,8 +25,8 @@
               <v-flex xs12>
                 <v-layout align-center justify-end row fill-height>
                   <v-btn right dark color="indigo"
-                         @click.prevent="login">Submit
-                  </v-btn>
+                         :disabled="readyToSend"
+                         @click.prevent="sendQuestion">Send Question</v-btn>
                 </v-layout>
               </v-flex>
             </v-layout>
@@ -43,16 +44,28 @@
     data() {
       return {
         event: null,
-        password: ''
+        question: '',
+        readyToSend: false
+      }
+    },
+    watch:{
+      question(val){
+        if(val.length > 3){
+          this.readyToSend = false;
+        }else {
+          this.readyToSend = true;
+        }
       }
     },
     methods: {
-      login() {
+      sendQuestion() {
         const router = this.$router;
         const route = this.$route;
-        //this.$store.dispatch('login', {username: this.username, password: this.password});
-        this.$store.dispatch('login', {username: this.username, password: this.password});
+        this.$store.dispatch('SEND_QUESTION', this.question)
       },
+      ready(){
+        return false;
+      }
     },
 
     name: "AskQuestion"

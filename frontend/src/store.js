@@ -33,6 +33,20 @@ export default new Vuex.Store({
           console.log(error);
         })
       //commit('setEvent', dummyEvent);
+    },
+    'SEND_QUESTION'({commit, getters}, question) {
+      const event = getters.event;
+      const data = {question: question, event: event.id, moderator_num: 1}
+      console.log('Question data', data);
+      const url = `/questions/api/v1/question/create/`;
+      axios.post(url, data)
+        .then((response) => {
+          console.log('Question data', response.data);
+          commit('setQuestion', response.data);
+        })
+        .catch((error) => {
+          console.log('Post Question Error', error);
+        })
     }
   },
   getters: {
