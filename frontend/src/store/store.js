@@ -10,6 +10,7 @@ export default new Vuex.Store({
     event: null,
     question: null,
     appInfo: null,
+    error: null
   },
   mutations: {
     setEvent(state, event) {
@@ -20,6 +21,12 @@ export default new Vuex.Store({
     },
     setAppInfo(state, appInfo) {
       state.appInfo = appInfo;
+    },
+    setError(state, error) {
+      state.error = error;
+    },
+    clearError(state) {
+      state.error = null;
     },
 
   },
@@ -38,7 +45,7 @@ export default new Vuex.Store({
         })
       //commit('setEvent', dummyEvent);
     },
-    'SEND_QUESTION'({commit, getters}, question) {
+    'SEND_QUESTION'({commit, getters, dispatch}, question) {
       const csrftoken = $cookies.get('csrftoken');
       console.log('csrftoken', csrftoken);
       const headers = {headers: {'X-CSRFToken': csrftoken}};
@@ -46,7 +53,7 @@ export default new Vuex.Store({
       const event = getters.event;
       const data = {question: question, event: event.id, moderator_num: 1};
       console.log('Question data to POST', data, headers);
-      const url = `/questions/api/v1/question/create/`;
+      const url = `/questions/api/v2/question/create/`;
       axios.post(url, data, headers)
         .then((response) => {
           console.log('Question data retrieved', response.data);
@@ -54,6 +61,7 @@ export default new Vuex.Store({
         })
         .catch((error) => {
           console.log('Post Question Error', error);
+          dispatch('SET_ERROR', error);
         })
     },
     'GET_APP_INFO'({commit}) {
@@ -66,6 +74,13 @@ export default new Vuex.Store({
         .catch((error) => {
           console.log(error);
         })
+    },
+    'SET_ERROR'({commit}, error) {
+      console.log('Error to SET', error);
+      commit('setError', error)
+    },
+    'CLEAR_ERROR'({commit}) {
+      commit('clearError')
     }
   },
   getters: {
@@ -77,6 +92,9 @@ export default new Vuex.Store({
     },
     appInfo: state => {
       return state.appInfo;
+    },
+    error: state => {
+      return state.error;
     }
   }
 })
