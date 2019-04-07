@@ -2,7 +2,7 @@
   <div class="home">
     <h1>Thanks</h1>
     <v-btn dark color="indigo" @click="askQuestion">Ask another question</v-btn>
-    <v-snackbar v-model="snackbar" :timeout="timeout">{{message}}
+    <v-snackbar v-model="snackbar" color="red" :timeout="timeout">{{message}}
       <v-btn
         dark
         flat
@@ -24,8 +24,8 @@
     data() {
       return {
         message: '',
-        timeout: 6000,
-        displayError: false
+        timeout: 7000,
+        displaySnack: false
       }
     },
     components: {
@@ -50,7 +50,7 @@
           }
         },
         set(value) {
-
+          this.displaySnack = value;
         }
       }
     },
