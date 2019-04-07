@@ -24,7 +24,8 @@
     data() {
       return {
         message: '',
-        timeout: 6000
+        timeout: 6000,
+        displayError: false
       }
     },
     components: {
@@ -34,17 +35,22 @@
       ...mapGetters([
         'error',
       ]),
-      snackbar() {
-        if (this.error) {
-          console.log('computed ERROR');
-          const errorMessage = this.$store.getters.error.response.statusText;
-          const status = this.$store.getters.error.response.status;
-          this.message = `There was a ${status} error ${errorMessage}!!. Please contact your support personel.`
-          //this.snackbar = true;
-          return true
-        } else {
-          console.log('computed NO ERROR');
-          return false
+      snackbar: {
+        get() {
+          if (this.error) {
+            console.log('computed ERROR');
+            const errorMessage = this.$store.getters.error.response.statusText;
+            const status = this.$store.getters.error.response.status;
+            this.message = `There was a ${status} error ${errorMessage}!!. Please contact your support personel.`
+            //this.snackbar = true;
+            return true
+          } else {
+            console.log('computed NO ERROR');
+            return false
+          }
+        },
+        set(value) {
+
         }
       }
     },
