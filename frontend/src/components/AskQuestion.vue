@@ -50,7 +50,6 @@
     },
     watch:{
       question(val){
-        console.log('Question', val);
         if(val.length > 3){
           this.readyToSend = false;
         }else {
