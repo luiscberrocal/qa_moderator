@@ -1,7 +1,7 @@
 <template>
   <div class="home">
    <h1>Thanks</h1>
-    <v-btn @click="askQuestion">Ask another question</v-btn>
+    <v-btn dark color="indigo" @click="askQuestion">Ask another question</v-btn>
   </div>
 </template>
 
