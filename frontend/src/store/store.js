@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import axios from '../django-auth'
 
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
@@ -18,7 +18,7 @@ export default new Vuex.Store({
     setQuestion(state, question) {
       state.question = question;
     },
-     setAppInfo(state, appInfo) {
+    setAppInfo(state, appInfo) {
       state.appInfo = appInfo;
     },
 
@@ -40,24 +40,25 @@ export default new Vuex.Store({
     },
     'SEND_QUESTION'({commit, getters}, question) {
       const csrftoken = $cookies.get('csrftoken');
-      //console.log('csrftoken', csrftoken)
-      const headers = {headers: { 'X-CSRFToken': csrftoken}}
+      console.log('csrftoken', csrftoken);
+      const headers = {headers: {'X-CSRFToken': csrftoken}};
+      //const headers = {headers: {"Authorization": `Bearer ${JWTToken}`, 'Content-Type': 'multipart/form-data'}}
       const event = getters.event;
-      const data = {question: question, event: event.id, moderator_num: 1}
-      console.log('Question data', data, headers);
+      const data = {question: question, event: event.id, moderator_num: 1};
+      console.log('Question data to POST', data, headers);
       const url = `/questions/api/v1/question/create/`;
-      axios.post(url, data)
+      axios.post(url, data, headers)
         .then((response) => {
-          console.log('Question data', response.data);
+          console.log('Question data retrieved', response.data);
           commit('setQuestion', response.data);
         })
         .catch((error) => {
           console.log('Post Question Error', error);
         })
     },
-    'GET_APP_INFO'({commit}){
-       const url = `/core/api/v1/app-info/`;
-       axios.get(url)
+    'GET_APP_INFO'({commit}) {
+      const url = `/core/api/v1/app-info/`;
+      axios.get(url)
         .then((response) => {
           console.log('App Info', response.data);
           commit('setAppInfo', response.data);
