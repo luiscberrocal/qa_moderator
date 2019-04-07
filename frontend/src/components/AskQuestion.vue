@@ -45,11 +45,12 @@
       return {
         event: null,
         question: '',
-        readyToSend: false
+        readyToSend: true
       }
     },
     watch:{
       question(val){
+        console.log('Question', val);
         if(val.length > 3){
           this.readyToSend = false;
         }else {
@@ -62,6 +63,7 @@
         const router = this.$router;
         const route = this.$route;
         this.$store.dispatch('SEND_QUESTION', this.question)
+        this.$router.push('/thanks')
       },
       ready(){
         return false;

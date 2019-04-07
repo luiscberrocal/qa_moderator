@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import axios from './django-auth'
+import axios from '../django-auth'
 
 
 Vue.use(Vuex)
@@ -8,7 +8,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     event: null,
-    question: null
+    question: null,
+    appInfo: null,
   },
   mutations: {
     setEvent(state, event) {
@@ -16,11 +17,14 @@ export default new Vuex.Store({
     },
     setQuestion(state, question) {
       state.question = question;
-    }
+    },
+     setAppInfo(state, appInfo) {
+      state.appInfo = appInfo;
+    },
+
   },
   actions: {
     'GET_CURRENT_EVENT'({commit}, eventId) {
-      let dummyEvent = {name: 'RCI AC', id: 1};
       console.log('API URL', process.env.VUE_APP_API_URL);
       console.log('NODE Env', process.env.NODE_ENV);
       const url = `/events/api/v1/event/${eventId}/`;
@@ -50,6 +54,17 @@ export default new Vuex.Store({
         .catch((error) => {
           console.log('Post Question Error', error);
         })
+    },
+    'GET_APP_INFO'({commit}){
+       const url = `/core/api/v1/app-info/`;
+       axios.get(url)
+        .then((response) => {
+          console.log('App Info', response.data);
+          commit('setAppInfo', response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        })
     }
   },
   getters: {
@@ -58,6 +73,9 @@ export default new Vuex.Store({
     },
     question: state => {
       return state.question;
+    },
+    appInfo: state => {
+      return state.appInfo;
     }
   }
 })
