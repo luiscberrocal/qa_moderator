@@ -2,12 +2,10 @@
   <div id="app">
     <h1>{{title}}</h1>
     <h2>{{office}}</h2>
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-      |
-      <router-link to="/about">About</router-link>
-    </div>
     <router-view/>
+    <div>
+      Version {{version}}
+    </div>
   </div>
 </template>
 
@@ -17,7 +15,8 @@
     data() {
       return {
         defaultTitle: 'Reunión de Comunicación Interna',
-        defaultOffice: 'Oficina de Asuntos Importantes'
+        defaultOffice: 'Oficina de Asuntos Importantes',
+        defaultVersion: '?.?.?'
       }
     },
     computed: {
@@ -30,10 +29,18 @@
          if (this.$store.getters.event) {
            return this.$store.getters.event.office_name || this.defaultOffice;
          }
+      },
+      version() {
+        if (this.$store.getters.appInfo){
+          return this.$store.getters.appInfo.version;
+        }else {
+          return this.defaultVersion;
+        }
       }
     },
     created() {
       this.$store.dispatch('GET_CURRENT_EVENT', 1);
+      this.$store.dispatch('GET_APP_INFO');
     },
   }
 </script>

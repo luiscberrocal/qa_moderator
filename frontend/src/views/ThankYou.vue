@@ -1,6 +1,7 @@
 <template>
   <div class="home">
    <h1>Thanks</h1>
+    <v-btn @click="askQuestion">Ask another question</v-btn>
   </div>
 </template>
 
@@ -12,6 +13,11 @@ export default {
   name: 'ThankYou',
   components: {
     AskQuestion
-  }
+  },
+  methods: {
+    askQuestion() {
+      this.$router.push({name: 'home'});
+    }
+  },
 }
 </script>
