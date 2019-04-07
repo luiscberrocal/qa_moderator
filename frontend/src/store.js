@@ -46,6 +46,7 @@ export default new Vuex.Store({
         .then((response) => {
           console.log('Question data', response.data);
           commit('setQuestion', response.data);
+          this.$router.push('/thanks')
         })
         .catch((error) => {
           console.log('Post Question Error', error);

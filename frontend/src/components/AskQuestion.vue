@@ -62,6 +62,7 @@
         const router = this.$router;
         const route = this.$route;
         this.$store.dispatch('SEND_QUESTION', this.question)
+        this.$router.push('/thanks')
       },
       ready(){
         return false;
