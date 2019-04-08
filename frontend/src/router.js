@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import ThankYou from './views/ThankYou.vue'
+import EventQuestion from './views/EventQuestion.vue'
 
 Vue.use(Router)
 
@@ -17,7 +18,7 @@ export default new Router({
     {
       path: '/event/:id',
       name: 'event',
-      component: Home
+      component: EventQuestion
     },
     {
       path: '/thanks',
