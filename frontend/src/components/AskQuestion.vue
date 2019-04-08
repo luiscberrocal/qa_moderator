@@ -4,7 +4,7 @@
       <v-flex xs12 md6 offset-md3>
         <v-card>
           <v-toolbar dark color="teal">
-            <v-toolbar-title>Question</v-toolbar-title>
+            <v-toolbar-title>{{ $t('question') }}</v-toolbar-title>
           </v-toolbar>
           <v-card-text>
             <v-layout row wrap>
@@ -27,7 +27,7 @@
                   <v-btn right color="indigo"
                          class="white--text"
                          :disabled="readyToSend"
-                         @click.prevent="sendQuestion">Send Question</v-btn>
+                         @click.prevent="sendQuestion">{{ $t('send_question') }}</v-btn>
                 </v-layout>
               </v-flex>
             </v-layout>

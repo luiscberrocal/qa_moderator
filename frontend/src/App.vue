@@ -4,7 +4,7 @@
     <h2 class="white--text">{{office}}</h2>
     <router-view/>
     <div>
-      Version {{version}}
+      {{ $t('version') }} {{version}}
     </div>
   </div>
 </template>
