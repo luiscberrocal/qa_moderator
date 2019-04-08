@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+
    <ask-question></ask-question>
   </div>
 </template>
@@ -19,3 +20,4 @@ export default {
   }
 }
 </script>
+

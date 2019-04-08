@@ -4,7 +4,7 @@
     <h2 class="white--text">{{office}}</h2>
     <router-view/>
     <div>
-      Version {{version}}
+      {{ $t('version') }} {{version}}
     </div>
   </div>
 </template>
@@ -39,7 +39,7 @@
       }
     },
     created() {
-      //this.$store.dispatch('GET_CURRENT_EVENT', 1);
+      this.$store.dispatch('GET_CURRENT_EVENT', 1);
       this.$store.dispatch('GET_APP_INFO');
     },
   }
