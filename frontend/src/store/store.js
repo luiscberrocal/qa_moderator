@@ -80,6 +80,7 @@ export default new Vuex.Store({
       commit('setError', error)
     },
     'CLEAR_ERROR'({commit}) {
+      //Clears the error state
       commit('clearError')
     }
   },
