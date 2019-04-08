@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-heroku config:set DJANGO_AWS_ACCESS_KEY_ID=InvalidaKeyAWSNotCreated
+heroku config:set DJANGO_AWS_ACCESS_KEY_ID=InvalidaKeyAWSNotCreatedds
 
 heroku config:set DJANGO_AWS_SECRET_ACCESS_KEY=FalseAccesKeyJustT0Run
 
