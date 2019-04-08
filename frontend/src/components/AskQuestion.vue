@@ -24,7 +24,8 @@
             <v-layout row>
               <v-flex xs12>
                 <v-layout align-center justify-end row fill-height>
-                  <v-btn right dark color="indigo"
+                  <v-btn right color="indigo"
+                         class="white--text"
                          :disabled="readyToSend"
                          @click.prevent="sendQuestion">Send Question</v-btn>
                 </v-layout>

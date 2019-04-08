@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>Thanks</h1>
+    <h1 class="indigo--text display-4 py-4 font-weight-regular font-italic " >Thanks</h1>
     <v-btn dark color="indigo" @click="askQuestion">Ask another question</v-btn>
     <v-snackbar v-model="snackbar" color="red" :timeout="timeout">{{message}}
       <v-btn
