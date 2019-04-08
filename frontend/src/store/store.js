@@ -53,7 +53,7 @@ export default new Vuex.Store({
       const event = getters.event;
       const data = {question: question, event: event.id, moderator_num: 1};
       console.log('Question data to POST', data, headers);
-      const url = `/questions/api/v2/question/create/`;
+      const url = `/questions/api/v1/question/create/`;
       axios.post(url, data, headers)
         .then((response) => {
           console.log('Question data retrieved', response.data);
