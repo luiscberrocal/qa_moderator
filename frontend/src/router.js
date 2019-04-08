@@ -15,6 +15,11 @@ export default new Router({
       component: Home
     },
     {
+      path: '/event/:id',
+      name: 'event',
+      component: Home
+    },
+    {
       path: '/thanks',
       name: 'thanks',
       component: ThankYou

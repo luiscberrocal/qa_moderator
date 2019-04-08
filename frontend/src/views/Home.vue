@@ -12,6 +12,10 @@ export default {
   name: 'home',
   components: {
     AskQuestion
+  },
+  created(){
+    const r = this.$route;
+    console.log('Route', r);
   }
 }
 </script>
