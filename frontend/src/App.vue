@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <h1>{{title}}</h1>
-    <h2>{{office}}</h2>
+    <h1 class="white--text display-3" >{{title}}</h1>
+    <h2 class="white--text display-2">{{office}}</h2>
     <router-view/>
     <div>
       Version {{version}}
@@ -46,12 +46,18 @@
 </script>
 
 <style lang="scss">
+  body {
+ //#53e3a6
+background-color:  #68d4a6;
+ }
+
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
+
   }
 
   #nav {
