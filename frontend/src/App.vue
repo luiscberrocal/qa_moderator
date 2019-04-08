@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <h1 class="white--text display-3" >{{title}}</h1>
-    <h2 class="white--text display-2">{{office}}</h2>
+    <h1 class="white--text py-2" >{{title}}</h1>
+    <h2 class="white--text">{{office}}</h2>
     <router-view/>
     <div>
       Version {{version}}
@@ -22,7 +22,7 @@
     computed: {
       title() {
         if (this.$store.getters.event) {
-          return this.$store.getters.event.name || this.defaultTitle;
+          return this.$store.getters.event.title || this.defaultTitle;
         }
       },
       office() {
