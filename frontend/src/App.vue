@@ -39,7 +39,7 @@
       }
     },
     created() {
-      //this.$store.dispatch('GET_CURRENT_EVENT', 1);
+      this.$store.dispatch('GET_CURRENT_EVENT', 1);
       this.$store.dispatch('GET_APP_INFO');
     },
   }
