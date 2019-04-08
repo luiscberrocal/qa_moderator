@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-
    <ask-question></ask-question>
   </div>
 </template>
@@ -17,7 +16,7 @@ export default {
   created(){
     const r = this.$route;
     console.log('Route', r);
+    this.$store.dispatch('GET_CURRENT_EVENT', r.params.id);
   }
 }
 </script>
-
